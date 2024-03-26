@@ -1,6 +1,6 @@
 ---
 permalink: /about/
-title: "About"
+title: "一段话"
 ---
 
 而生命的意义就是...

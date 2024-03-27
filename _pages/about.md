@@ -1,30 +1,9 @@
 ---
 permalink: /about/
-title: "一段话"
+title: ""
 ---
 
-而生命的意义就是...
-
-去码头整点薯条！
-
-没有任何理由，也无需任何意义
-
-只是为了整点薯条而整点薯条
-
-活在每一个必将到来的当下
-
-不受意义的控制和折磨
-
-然后与这虚无、残酷而又痛苦的生活斗争到最后一秒
-
-在每一个痛苦且没有意义的日子中起舞
-
-最后，勇敢地爱上生活
-
-不才是这个世界最有勇气、最值得奋斗的事情吗
-
-所以
-
-陌生人
-
-你的答案是？
+<!-- dynamic typing effect 动态打字效果 -->
+<a href="https://blog.sunguoqi.com/">
+      <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=735&lines=System.out.println(%22你好%2C%20很高兴认识你👋%22);&center=true&size=29" />
+</a>

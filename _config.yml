@@ -58,7 +58,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name: "Damokeris"
+  name: "作者:Damokeris"
   avatar: "/assets/images/bio-photo.png"
   bio: "The meaning of life is, Go to the dock and order some French fries!"
   links:

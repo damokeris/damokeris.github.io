@@ -23,3 +23,5 @@ proxy_set_header Connection "upgrade";
 
 
 * 记得重载nginx配置
+
+<img src="{{ site.miniobaseurl }}/AuthorAvatar.jpg" alt="ImageDemo" style="display: block; margin-left: auto; margin-right: auto; width: 200px; height: 200px;">

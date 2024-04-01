@@ -1,0 +1,24 @@
+{
+  "name": "Jekyll",
+  "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {},
+      "extensions": ["redjue.git-commit-plugin"]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "ppa": true,
+      "version": "latest"
+    }
+  },
+  "initializeCommand": [
+    "powershell",
+    "-Command",
+    "echo \"GIT_USER_NAME=$(git config --global user.name)\" | Out-File -Encoding UTF8 .devcontainer/.env; echo \"GIT_USER_EMAIL=$(git config --global user.email)\" | Out-File -Encoding UTF8 -Append .devcontainer/.env"
+  ],
+  "postCreateCommand": "git config --global core.autocrlf input && git config --global user.name \"$(grep GIT_USER_NAME .devcontainer/.env | cut -d '=' -f2-)\" && git config --global user.email \"$(grep GIT_USER_EMAIL .devcontainer/.env | cut -d '=' -f2-)\""
+}

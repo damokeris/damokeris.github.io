@@ -13,6 +13,13 @@ docker run --rm --volume="${PWD}:/srv/jekyll" -p 4000:4000 jekyll/jekyll jekyll 
 - `jekyll serve`: 运行 Jekyll 服务器。
 - `--force_polling`: 强制 Jekyll 轮询文件系统变化，实现查看实时编辑效果。
 
+# What to do if you want to debug locally or within a development container
+
+运行如下命令
+
+```shell
+bundle exec jekyll serve --livereload --force_polling
+```
 
 # Minimal Mistakes remote theme starter
 

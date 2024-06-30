@@ -102,5 +102,5 @@ tag_archive:
   type: liquid
   path: /tags/
 
-miniobaseurl: http://bucket.damokeris.xyz/bucket-node-1
+miniobaseurl: http://bucket.damokeris.xyz/bucket-node-3
     

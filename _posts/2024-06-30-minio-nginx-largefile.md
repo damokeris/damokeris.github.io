@@ -9,7 +9,7 @@ tags:
 
 ## 问题描述
 
-<img src="{{ site.miniobaseurl }}/2024-06-30-001.png" alt="Image" style="display: block; margin-left: auto; margin-right: auto; width: 600px; height: 300px;">
+![Image]({{ site.miniobaseurl }}/2024-06-30-001.png){: .height300px }
 
 ## 问题原因
 

@@ -6,11 +6,15 @@ title: '写在最前'
 
 🚀🚀🚀：此博客站点页面由 `VitePress` + `Github Page` 提供.
 
-## 开头
+## 开头✍️
 
-我是一名
+我是一名计算机爱好者，最多使用的语言是：Java <img src="http://bucket.damokeris.xyz/bucket-node-1/java.png" style="vertical-align: middle; height: 20px; display: inline;" />，使用最多的数据库是： MySQL <img src="http://bucket.damokeris.xyz/bucket-node-1/mysql.png" style="vertical-align: middle; height: 20px; display: inline;" />
 
-## 关于作者
+当然，我最爱的其实是：<img src="http://bucket.damokeris.xyz/bucket-node-1/docker.png" style="vertical-align: middle; height: 20px; display: inline;" />Docker😚😚😚
+
+这是我见过最美妙的技术：（就像 [Docker官网](https://www.docker.com/) 说的）Develop faster. Run anywhere.
+
+## 关于作者🏃
 
 <VPTeamMembers size="small" :members="members" />
 
@@ -25,25 +29,10 @@ const members = [
     links: [
       { icon: 'github', link: 'https://github.com/damokeris' }
     ]
-  },
+  }
 ]
 </script>
 
-## comment
+## 评论📮
 
-<script src="https://giscus.app/client.js"
-        data-repo="damokeris/damokeris.github.io"
-        data-repo-id="R_kgDOMk-JtA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMk-JtM4Chwez"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
+<DisqusComments />

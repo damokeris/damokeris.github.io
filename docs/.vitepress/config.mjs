@@ -48,6 +48,7 @@ const vitepressSidebarOptions = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  head: [["link", { rel: "icon", href: "http://bucket.damokeris.xyz/bucket-node-1/咖啡-32.svg" }]],
   title: "Hello, damokeris",
   description: "A VitePress Site",
   themeConfig: {

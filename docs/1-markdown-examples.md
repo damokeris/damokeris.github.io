@@ -8,7 +8,7 @@ title: '写在最前'
 
 ## 开头
 
-
+我是一名
 
 ## 关于作者
 
@@ -27,4 +27,23 @@ const members = [
     ]
   },
 ]
+</script>
+
+## comment
+
+<script src="https://giscus.app/client.js"
+        data-repo="damokeris/damokeris.github.io"
+        data-repo-id="R_kgDOMk-JtA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOMk-JtM4Chwez"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>

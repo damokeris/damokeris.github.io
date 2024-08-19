@@ -14,6 +14,10 @@ title: '写在最前'
 
 这是我见过最美妙的技术：（就像 [Docker官网](https://www.docker.com/) 说的）Develop faster. Run anywhere.
 
+同时，我希望向你能从我的post中得到收获，也许你会感兴趣😉
+
+当然，如果你有更棒的主意，欢迎联系我😄
+
 ## 关于作者🏃
 
 <VPTeamMembers size="small" :members="members" />

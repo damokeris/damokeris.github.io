@@ -1,6 +1,16 @@
 import { defineConfig } from 'vitepress'
+
+//导入 自动侧边栏组件 依赖
 import { generateSidebar } from 'vitepress-sidebar'
 
+//导入 基于Git的页面历史 依赖
+import {
+  GitChangelog,
+  GitChangelogMarkdownSection,
+} from '@nolebase/vitepress-plugin-git-changelog/vite'
+
+
+//定义 自动侧边栏组件 元素
 const vitepressSidebarOptions = {
   /*
          * For detailed instructions, see the links below:
@@ -48,6 +58,16 @@ const vitepressSidebarOptions = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    plugins: [
+      GitChangelog({
+        // 填写在此处填写您的仓库链接
+        repoURL: () => 'https://github.com/damokeris/damokeris.github.io',
+      }),
+      GitChangelogMarkdownSection(),
+    ],
+  }, 
+  lang: 'zh-CN',
   head: [["link", { rel: "icon", href: "http://bucket.damokeris.xyz/bucket-node-1/咖啡-32.svg" }]],
   title: "Hello, damokeris",
   description: "A VitePress Site",

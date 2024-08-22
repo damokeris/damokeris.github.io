@@ -59,6 +59,19 @@ const vitepressSidebarOptions = {
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   vite: {
+    //阅读增强 插件
+    optimizeDeps: {
+      exclude: [
+        '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+      ],
+    },
+    ssr: {
+      noExternal: [
+        // 如果还有别的依赖需要添加的话，并排填写和配置到这里即可
+        '@nolebase/vitepress-plugin-enhanced-readabilities',
+      ],
+    },
+    //基于Git的页面历史 插件
     plugins: [
       GitChangelog({
         // 填写在此处填写您的仓库链接

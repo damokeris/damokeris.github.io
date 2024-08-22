@@ -4,3 +4,11 @@
   border-radius: 2px;
   transition: background-color 0.25s;
 }
+
+/* VitePress 导航栏样式异常？ */
+/* 你可能会在配置了社交链接的情况下发现在集成了导航栏组件之后导航栏的样式有些许的不对齐，
+这是因为 VitePress 原生的社交链接默认会有负的 16 个像素的右边距偏差。 
+你可以通过在 .vitepress/theme/styles 目录或者文件夹下面的 main.css 样式文件中添加下面的样式来解决这个问题： */
+.VPSocialLinks.VPNavBarSocialLinks.social-links {
+  margin-right: 0;
+}

@@ -1,5 +1,8 @@
 import DefaultTheme from 'vitepress/theme'
 
+//导入 自定义CSS样式
+import './custom.css';
+
 //导入 Disqus评论 依赖
 import DisqusComments from './components/DisqusComments.vue'
 

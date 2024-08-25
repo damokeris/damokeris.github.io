@@ -140,6 +140,3 @@ $ npx vitepress dev docs
 
 开发服务应该会运行在 上。在浏览器中访问 URL 以查看新站点的运行情况吧！`http://localhost:5173`
 
-## 评论📮
-
-<DisqusComments />

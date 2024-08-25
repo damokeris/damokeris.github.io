@@ -54,7 +54,3 @@ export default DefaultTheme;
 ![doc-multi-level-docs-after.png](http://bucket.damokeris.xyz/bucket-node-1/doc-multi-level-docs-after.png)
 
 需要注意的是，您在此处看到的垂直分隔线仅使用 CSS 创建;它应该是使用名为 的 CSS 类创建的，因此您应该知道，将来构建动态页面时可能不会选择垂直分隔线。`div` `indicator`
-
-## 评论📮
-
-<DisqusComments />

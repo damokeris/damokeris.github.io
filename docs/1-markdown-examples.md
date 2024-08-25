@@ -2,9 +2,9 @@
 title: '写在最前'
 ---
 
-# 故事,从这里开始
+# 故事,从这里开始 🌟
 
-🚀🚀🚀：此博客站点页面由 `VitePress` + `Github Page` 提供.
+🚀🚀🚀：此站点由 `VitePress` + `Github Page` 强力驱动.
 
 ## 开头✍️
 

@@ -69,6 +69,8 @@ export default defineConfig({
       noExternal: [
         // 如果还有别的依赖需要添加的话，并排填写和配置到这里即可
         '@nolebase/vitepress-plugin-enhanced-readabilities',
+        //闪烁高亮当前的目标标题
+        '@nolebase/vitepress-plugin-highlight-targeted-heading', 
       ],
     },
     //基于Git的页面历史 插件

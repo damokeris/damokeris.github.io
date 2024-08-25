@@ -26,6 +26,13 @@ import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
 // TODO 配置阅读增强的默认配置；需要注意的是，该配置可能与《基于Git的页面历史 UI配置 依赖》的自定义配置冲突
 
+//导入 闪烁高亮当前目标标题 依赖
+import {
+  NolebaseHighlightTargetedHeading,
+} from '@nolebase/vitepress-plugin-highlight-targeted-heading/client'
+
+import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css'
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
@@ -64,6 +71,10 @@ export default {
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
       // 为较窄的屏幕（通常是小于 iPad Mini）添加阅读增强菜单
       'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
+      // 闪烁高亮当前目标标题
+      'layout-top': () => [
+        h(NolebaseHighlightTargetedHeading),
+      ], 
     });
   }
 }

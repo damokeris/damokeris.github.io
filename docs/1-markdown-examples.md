@@ -8,15 +8,11 @@ title: '写在最前'
 
 ## 开头✍️
 
-我是一名计算机爱好者，最多使用的语言是：Java <img src="http://bucket.damokeris.xyz/bucket-node-1/java.png" style="vertical-align: middle; height: 20px; display: inline;" />，使用最多的数据库是： MySQL <img src="http://bucket.damokeris.xyz/bucket-node-1/mysql.png" style="vertical-align: middle; height: 20px; display: inline;" />
+你好，我是 `damokeris` ，一个爱好计算机技术的朋友😊。
 
-当然，我最爱的其实是：<img src="http://bucket.damokeris.xyz/bucket-node-1/docker.png" style="vertical-align: middle; height: 20px; display: inline;" />Docker😚😚😚
+其中，最让我着迷的技术是：<img src="http://bucket.damokeris.xyz/bucket-node-1/docker.png" style="vertical-align: middle; height: 20px; display: inline;" />Docker😚😚😚。这是我见过最美妙的技术：（就像 👉  [Docker官网](https://www.docker.com/) 说的）Develop faster. Run anywhere.
 
-这是我见过最美妙的技术：（就像 [Docker官网](https://www.docker.com/) 说的）Develop faster. Run anywhere.
-
-同时，我希望向你能从我的post中得到收获，也许你会感兴趣😉
-
-当然，如果你有更棒的主意，欢迎联系我😄
+在这里我将分享一些技术心得和实践经验，希望你能从我的文章中获得一些有用的启发，甚至激发出你的兴趣 😉。除了技术，我也在不断探索新的领域和挑战，期待与你共同探讨更好的解决方案。如果你有任何有趣的想法或建议，非常欢迎随时联系我 😄。
 
 ## 关于作者🏃
 

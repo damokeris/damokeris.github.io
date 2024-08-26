@@ -78,6 +78,20 @@ export default defineConfig({
       GitChangelog({
         // 填写在此处填写您的仓库链接
         repoURL: () => 'https://github.com/damokeris/damokeris.github.io',
+
+        // 加入Git提交者 到 贡献者 的映射关系
+        mapAuthors: [
+          {
+            name: 'intel-i5-13400',
+            username: 'damokeris', 
+            mapByEmailAliases: '1327118851@qq.com'
+          },
+          {
+            name: 'ThinkPad T14',
+            username: 'damokeris', 
+            mapByEmailAliases: ['1327118851@qq.com'] 
+          },
+        ],
       }),
       GitChangelogMarkdownSection(),
     ],

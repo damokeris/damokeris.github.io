@@ -24,7 +24,10 @@ import {
 
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
 
-// TODO 配置阅读增强的默认配置；需要注意的是，该配置可能与《基于Git的页面历史 UI配置 依赖》的自定义配置冲突
+//导入 mark增强
+import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css'
+
+// TODO 配置阅读增强的默认配置，我希望默认全屏，开聚光灯；需要注意的是，该配置可能与《基于Git的页面历史 UI配置 依赖》的自定义配置冲突
 
 //导入 闪烁高亮当前目标标题 依赖
 import {

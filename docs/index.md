@@ -9,7 +9,8 @@ hero:
   text: "千万和春往"
   tagline: --damokeris
   image:
-    src: "http://bucket.damokeris.xyz/bucket-node-1/VSCode-Thick.png"
+    src: "/images/VSCode-Thick.png"   # 本地图片
+    alt: "VSCode Logo"                # 建议加上 alt 文字
   actions:
     - theme: brand
       text: 从这里开始

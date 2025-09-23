@@ -70,7 +70,7 @@ export default defineConfig({
         // 如果还有别的依赖需要添加的话，并排填写和配置到这里即可
         '@nolebase/vitepress-plugin-enhanced-readabilities',
         //闪烁高亮当前的目标标题
-        '@nolebase/vitepress-plugin-highlight-targeted-heading', 
+        '@nolebase/vitepress-plugin-highlight-targeted-heading',
       ],
     },
     //基于Git的页面历史 插件
@@ -83,19 +83,20 @@ export default defineConfig({
         mapAuthors: [
           {
             name: 'intel-i5-13400',
-            username: 'damokeris', 
+            username: 'damokeris',
             mapByEmailAliases: '1327118851@qq.com'
           },
           {
             name: 'ThinkPad T14',
-            username: 'damokeris', 
-            mapByEmailAliases: ['1327118851@qq.com'] 
+            username: 'damokeris',
+            mapByEmailAliases: ['1327118851@qq.com']
           },
         ],
       }),
       GitChangelogMarkdownSection(),
     ],
-  }, 
+    publicDir: '../public',
+  },
   lang: 'zh-CN',
   head: [["link", { rel: "icon", href: "http://bucket.damokeris.xyz/bucket-node-1/咖啡-32.svg" }]],
   title: "Hello, damokeris",

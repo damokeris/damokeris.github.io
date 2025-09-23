@@ -5,9 +5,9 @@
 layout: home
 
 hero:
-  name: "若到江南赶上春"
-  text: "千万和春往"
-  tagline: --damokeris
+  name: "天才就是"
+  text: "99% 的努力和 1% 的灵感"
+  tagline: --放心，这里只有那 1%
   image:
     src: "/images/VSCode-Thick.png"   # 本地图片
     alt: "VSCode Logo"                # 建议加上 alt 文字

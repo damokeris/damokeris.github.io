@@ -58,6 +58,7 @@ const vitepressSidebarOptions = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/', // 明确设置 base 为根路径，确保 GitHub Pages 正确解析
   vite: {
     //阅读增强 插件
     optimizeDeps: {

@@ -6,3 +6,7 @@ cache
 .cache
 .temp
 *.local
+.vscode
+.idea
+.env
+.obsidian

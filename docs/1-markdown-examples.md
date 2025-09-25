@@ -23,7 +23,7 @@ import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
   {
-    avatar: '/images/面包狗.jpg',
+    avatar: '/images/icecream.jpg',
     name: 'damokeris',
     title: 'Creator',
     links: [

@@ -120,7 +120,7 @@ export default defineConfig({
     sidebar: generateSidebar(vitepressSidebarOptions),
 
     footer: {
-      copyright: "Copyright @ 2024-present damokeris"
+      copyright: "Copyright @ 2024-present damokeris · Powered by VitePress & GitHub Pages"
     },
 
     socialLinks: [

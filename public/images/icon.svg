@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <!-- 背景圆圈 -->
+  <circle cx="50" cy="50" r="45" fill="#007acc" stroke="#005a9c" stroke-width="2"/>
+  
+  <!-- 纯字符画：字母D代表damokeris -->
+  <text x="50" y="62" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="bold">D</text>
+  
+  <!-- 可选：添加一个简单的装饰 -->
+  <circle cx="50" cy="30" r="5" fill="#ff6b6b"/>
+</svg>

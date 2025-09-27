@@ -99,12 +99,12 @@ export default defineConfig({
     publicDir: '../public',
   },
   lang: 'zh-CN',
-  head: [["link", { rel: "icon", href: "http://bucket.damokeris.xyz/bucket-node-1/咖啡-32.svg" }]],
+  head: [["link", { rel: "icon", href: "/images/icon.svg" }]],
   title: "Hello, damokeris",
   description: "A VitePress Site",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: 'http://bucket.damokeris.xyz/bucket-node-1/咖啡-32.svg',
+    logo: '/images/icon.svg',
     siteTitle: 'Hello World',
 
     outline: {

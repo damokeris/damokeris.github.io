@@ -3,8 +3,8 @@ import DefaultTheme from 'vitepress/theme'
 //导入 自定义CSS样式
 import './custom.css';
 
-//导入 Disqus评论 依赖
-import DisqusComments from './components/DisqusComments.vue'
+//导入 Utterances评论组件
+import Utterances from './components/Utterances.vue'
 
 //导入 基于Git的页面历史 依赖
 import {
@@ -40,7 +40,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.use(NolebaseGitChangelogPlugin),
-      app.component('DisqusComments', DisqusComments),
+      app.component('Utterances', Utterances),
       app.provide(InjectionKey, {
         // 配置...
         locales: {
@@ -77,7 +77,9 @@ export default {
       // 闪烁高亮当前目标标题
       'layout-top': () => [
         h(NolebaseHighlightTargetedHeading),
-      ], 
+      ],
+      // 在文档内容后添加评论组件
+      'doc-after': () => h(Utterances),
     });
   }
 }

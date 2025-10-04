@@ -1,3 +1,6 @@
+/* 引入 Maple Mono NF CN 字体 - 使用 zeoseven CDN */
+@import url("https://fontsapi.zeoseven.com/442/main/result.css");
+
 .group:has([role='button']) .VPSidebarItem.level-0 .items {
   padding-left: 16px !important;
   border-left: 1px solid var(--vp-c-divider);
@@ -7,8 +10,30 @@
 
 /* VitePress 导航栏样式异常？ */
 /* 你可能会在配置了社交链接的情况下发现在集成了导航栏组件之后导航栏的样式有些许的不对齐，
-这是因为 VitePress 原生的社交链接默认会有负的 16 个像素的右边距偏差。 
+这是因为 VitePress 原生的社交链接默认会有负的 16 个像素的右边距偏差。
 你可以通过在 .vitepress/theme/styles 目录或者文件夹下面的 main.css 样式文件中添加下面的样式来解决这个问题： */
 .VPSocialLinks.VPNavBarSocialLinks.social-links {
   margin-right: 0;
+}
+
+/* 使用 VitePress CSS 变量设置字体 */
+:root {
+  --vp-font-family-base: "Maple Mono NF CN", 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --vp-font-family-mono: "Maple Mono NF CN", 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* 应用字体到整个站点 */
+body {
+  font-family: var(--vp-font-family-base);
+  font-weight: normal;
+}
+
+/* 代码块字体 */
+code, pre, .vp-code, .language-*, div[class*="language-"] {
+  font-family: var(--vp-font-family-mono);
+}
+
+/* 内联代码字体大小调整 */
+:not(pre) > code {
+  font-size: 0.9em;
 }

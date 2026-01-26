@@ -1,6 +1,14 @@
 {
-  "name": "",
-  "version": "0.0.0",
+  "name": "damokeris.github.io",
+  "version": "1.0.0",
+  "description": "Personal blog and documentation site built with Docusaurus",
+  "author": "damokeris",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damokeris/damokeris.github.io"
+  },
+  "homepage": "https://damokeris.github.io",
+  "keywords": ["docusaurus", "blog", "documentation", "personal-site"],
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",

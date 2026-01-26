@@ -88,7 +88,7 @@ const config: Config = {
           label: '文档',
         },
         {
-          href: 'https://github.com/damokeris',
+          href: 'https://github.com/damokeris/damokeris.github.io',
           label: 'GitHub',
           position: 'right',
         },

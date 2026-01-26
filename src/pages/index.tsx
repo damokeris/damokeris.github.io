@@ -30,12 +30,7 @@ function HomepageHeader() {
                 to="/docs/markdown-examples">
                 从这里开始
               </Link>
-              <Link
-                className="button button--outline button--lg"
-                style={{ marginLeft: '1rem' }}
-                to="#features">
-                自我介绍👇
-              </Link>
+
             </div>
           </div>
           <div style={{ flex: 1, minWidth: '300px', textAlign: 'center', padding: '1rem' }}>

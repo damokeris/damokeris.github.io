@@ -10,19 +10,3 @@ title: '写在最前'
 
 ## 关于作者🏃
 
-<VPTeamMembers size="small" :members="members" />
-
-<script setup>
-import { VPTeamMembers } from 'vitepress/theme'
-
-const members = [
-  {
-    avatar: '/images/icecream.jpg',
-    name: 'damokeris',
-    title: 'Creator',
-    links: [
-      { icon: 'github', link: 'https://github.com/damokeris' }
-    ]
-  }
-]
-</script>

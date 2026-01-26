@@ -11,32 +11,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: '',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        过劳的中国在校生,辅修计算机科学与软件工程专业;
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        从 3 岁起就参加各类培训班,唯一在各类学校外的时间是去学钢琴;
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: '',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        肉眼只能看见题目中有用的部分,如果没有离散数学博士学位,他的答案你看了也看不懂;
       </>
     ),
   },
@@ -45,12 +42,9 @@ const FeatureList: FeatureItem[] = [
 function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
       <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+        {title && <Heading as="h3">{title}</Heading>}
+        <p style={{ fontSize: '1.1rem' }}>{description}</p>
       </div>
     </div>
   );
@@ -58,7 +52,7 @@ function Feature({title, Svg, description}: FeatureItem) {
 
 export default function HomepageFeatures(): ReactNode {
   return (
-    <section className={styles.features}>
+    <section className={styles.features} id="features">
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (

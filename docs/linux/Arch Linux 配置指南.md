@@ -1,5 +1,3 @@
-## 🤖 Assistant
-
 # Arch Linux 配置指南
 
 安装完 Arch Linux 后，建议进行如下设置：

@@ -39,6 +39,16 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Cache Docusaurus build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules/.cache
+            .docusaurus
+          key: ${{ runner.os }}-docusaurus-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-docusaurus-
+
       - name: Install dependencies
         run: npm ci
 

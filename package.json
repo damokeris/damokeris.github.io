@@ -8,7 +8,12 @@
     "url": "https://github.com/damokeris/damokeris.github.io"
   },
   "homepage": "https://damokeris.github.io",
-  "keywords": ["docusaurus", "blog", "documentation", "personal-site"],
+  "keywords": [
+    "docusaurus",
+    "blog",
+    "documentation",
+    "personal-site"
+  ],
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -24,6 +29,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
+    "@docusaurus/faster": "^3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",

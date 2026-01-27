@@ -27,7 +27,7 @@ function HomepageHeader() {
             <div className={styles.buttons} style={{ marginTop: '2rem' }}>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/markdown-examples">
+                to="/docs/begin">
                 从这里开始
               </Link>
 

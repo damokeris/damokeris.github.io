@@ -1,5 +1,6 @@
 ---
 title: '写在最前'
+sidebar_position: 1
 ---
 
 # 序言

@@ -65,7 +65,7 @@ const config: Config = {
       title: 'Hello, damokeris',
       logo: {
         alt: 'Site Logo',
-        src: '/images/icon.svg',
+        src: '/img/icon.svg',
       },
       items: [
         {

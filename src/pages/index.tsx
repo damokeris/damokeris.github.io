@@ -35,7 +35,7 @@ function HomepageHeader() {
           </div>
           <div style={{ flex: 1, minWidth: '300px', textAlign: 'center', padding: '1rem' }}>
             <img 
-              src="/images/VSCode-Thick.png" 
+              src="/img/VSCode-Thick.png" 
               alt="VSCode Logo" 
               style={{ maxWidth: '100%', height: 'auto', maxHeight: '300px' }}
             />

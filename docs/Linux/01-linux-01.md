@@ -1,14 +1,74 @@
 # Arch Linux 配置指南
 
-安装完 Arch Linux 后，建议进行如下设置：
+如果你安装了 Arch Linux，那么你可能需要：
+
+[Arch Linux CN 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/)
+
+Arch Linux 中文社区仓库 是由 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体/美化包等。
+
+官方仓库地址：https://repo.archlinuxcn.org
+使用方法：在 `/etc/pacman.conf` 文件末尾添加以下两行：
+
+```
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+```
+
+之后通过以下命令安装 archlinuxcn-keyring 包导入 GPG key。
+
+```shell
+pacman -Sy archlinuxcn-keyring
+```
+
 
 ## 换源
 
 安装必要的工具：
 
 ```bash
-sudo pacman -S git curl wget
+sudo pacman -S git curl wget vim base-devel
 ```
+
+Yay 是一个适用于Arch Linux的命令行软件，主要用于帮助用户从Arch User Repository(AUR)构建和安装软件包。它可以做的事情包括：
+
+1.自动解决软件包间的依赖关系。
+2.动态地搜索、编译和构建包。
+3.安装与管理 AUR中的包（ yay 的命令与 pacman 基本一致，例如 yay -S 对应 pacman -S，但 yay 能同时处理官方仓库和 AUR。 ）。
+
+在开始之前，请确保您已安装 base-devel git
+```
+pacman -S git base-devel
+```
+
+克隆 yay 源码：
+```
+git clone https://aur.archlinux.org/yay.git
+```
+
+如果你在中国构建yay，强烈建议你克隆 yay-bin 而非 yay。这是由于克隆和构建 yay-bin 相比 yay 不会遇到被墙问题，克隆 yay-bin 构建yay是因为 yay 是以Go语言构建的yay，可能会受到被墙影响：
+
+```
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+```
+
+进入yay文件夹：
+```
+cd yay
+```
+
+构建 yay 并在构建成功后安装生成的软件包：
+```
+makepkg -si
+```
+
+如果您想一次完成所有操作，请使用以下命令：
+```
+pacman -S git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+如果不想编译安装，也可以添加 [archlinuxcn](https://wiki.archlinuxcn.org/wiki/Arch_Linux_%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA%E4%BB%93%E5%BA%93) 仓库来安装 yay(CNRepo)。
+
 
 ### 一键执行命令
 
@@ -111,4 +171,3 @@ sudo reboot
 sudo pacman -S firefox          # 浏览器
 sudo pacman -S gnome-tweaks     # GNOME 设置工具
 ```
-

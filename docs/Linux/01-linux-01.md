@@ -150,7 +150,7 @@ sudo vim /etc/environment
 # 添加以下内容：
 GTK_IM_MODULE=fcitx5
 QT_IM_MODULE=fcitx5
-XMODIFIERS="@im=fcitx5"
+XMODIFIERS=@im=fcitx5
 INPUT_METHOD=fcitx5
 SDL_IM_MODULE=fcitx5
 
@@ -169,4 +169,28 @@ sudo reboot
 ```bash
 sudo pacman -S firefox          # 浏览器
 sudo pacman -S gnome-tweaks     # GNOME 设置工具
+```
+
+## 安装 v2rayA 
+
+v2rayA 的功能依赖于 V2Ray 内核，因此需要安装内核。
+
+安装 V2Ray 内核
+从官方源安装 v2ray。
+
+```
+sudo pacman -S v2ray
+```
+
+安装 v2rayA
+从 AUR 安装 v2raya 或 v2raya-bin、v2raya-git 即可。
+
+```
+yay -S v2raya
+```
+
+设置开机自启动
+```
+systemctl enable v2ray
+systemctl enable v2raya
 ```

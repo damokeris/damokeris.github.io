@@ -1,121 +1,28 @@
 # Arch Linux 配置指南
 
-如果你安装了 Arch Linux，那么你可能需要：
+## 概述
 
-## Arch Linux CN 软件仓库
+本文档提供 Arch Linux 系统安装后的基础配置指南，帮助用户快速搭建中文环境并安装常用工具。
 
-[Arch Linux CN 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/)
+## 1. 系统基础配置
 
-Arch Linux 中文社区仓库是由 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体/美化包等。
+### 1.1 软件源配置（换源）
 
-官方仓库地址：https://repo.archlinuxcn.org
-
-使用方法：在 `/etc/pacman.conf` 文件末尾添加以下两行：
+安装完成后首先需要配置软件源以加速下载：
 
 ```bash
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-```
-
-之后通过以下命令安装 archlinuxcn-keyring 包导入 GPG key。
-
-```bash
-pacman -Sy archlinuxcn-keyring
-```
-
-## 基础工具安装
-
-安装必要的工具：
-
-```bash
-sudo pacman -S git curl wget vim base-devel
-```
-
-### 安装 Yay（AUR 助手）
-
-Yay 是一个适用于 Arch Linux 的命令行软件，主要用于帮助用户从 Arch User Repository (AUR) 构建和安装软件包。它可以：
-
-1. 自动解决软件包间的依赖关系
-2. 动态地搜索、编译和构建包
-3. 安装与管理 AUR 中的包（yay 的命令与 pacman 基本一致，例如 `yay -S` 对应 `pacman -S`，但 yay 能同时处理官方仓库和 AUR）
-
-#### 方法一：从 AUR 编译安装
-
-首先确保已安装 base-devel 和 git：
-
-```bash
-pacman -S git base-devel
-```
-
-克隆 yay 源码（有两个选项）：
-
-**选项 A：克隆 yay（可能受网络限制）**
-```bash
-git clone https://aur.archlinux.org/yay.git
-cd yay
-```
-
-**选项 B：克隆 yay-bin（推荐中国用户使用）**
-```bash
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-```
-
-然后构建并安装：
-
-```bash
-makepkg -si
-```
-
-如果您想一次完成所有操作（使用 yay 版本）：
-
-```bash
-pacman -S git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-```
-
-#### 方法二：从 archlinuxcn 仓库安装
-
-如果不想编译安装，也可以添加 [archlinuxcn](https://wiki.archlinuxcn.org/wiki/Arch_Linux_%E4%B8%AD%E6%96%87%E7%A4%BE%E5%8C%BA%E4%BB%93%E5%BA%93) 仓库来安装 yay (CNRepo)。
-
-## 换源脚本
-
-### 一键执行命令
-
-```bash
+# 使用一键换源脚本（推荐）
 bash <(curl -sSL https://linuxmirrors.cn/main.sh)
-```
 
-或
-
-```bash
-# 实时同步、无延迟，国内网络环境下推荐使用
+# 或使用国内镜像源脚本
 bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/ChangeMirrors.sh)
 ```
 
-> **需要 `ROOT` 权限**
->
-> 请使用 `root` 账户运行本脚本，切换命令为 `sudo -i` 或 `su root`，不同系统使用的命令不同。另外注意不要通过 `sudo` 直接运行一键命令，例如 `sudo bash <(xxx)`。
+> **注意**：需要 `ROOT` 权限。请使用 `root` 账户运行本脚本，切换命令为 `sudo -i` 或 `su root`。
 
-## Docker 安装与换源
+### 1.2 系统语言环境配置
 
-### 一键执行命令
-
-```bash
-bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
-```
-
-或
-
-```bash
-# 实时同步、无延迟，国内网络环境下推荐使用
-bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh)
-```
-
-> 集成安装 [`Docker Engine`](https://docs.docker.com/engine) 和 [`Docker Compose`](https://docs.docker.com/compose)，支持选择或更换软件源（Docker 软件仓库）以及镜像仓库、安装指定版本、重装等功能，支持 ARM 架构。
->
-> 脚本参考[官方文档](https://docs.docker.com/engine/install)使用系统包管理工具进行安装，不存在兼容性、安全性等问题，可安装的版本由 Docker CE 仓库决定。
-
-## 系统语言环境配置（显示中文）
+配置系统支持中文显示：
 
 ```bash
 # 1. 编辑 locale.gen 文件，取消注释中文字体支持
@@ -132,65 +39,172 @@ sudo localectl set-locale LANG=zh_CN.UTF-8
 sudo reboot
 ```
 
-## 安装中文字体
+## 2. 软件仓库扩展
+
+### 2.1 Arch Linux CN 软件仓库
+
+添加中文社区仓库以获得更多软件包：
 
 ```bash
-# 推荐安装 Noto 字体（包含中文字体）
-sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts wqy-microhei wqy-zenhei ttf-dejavu
+# 编辑 pacman 配置文件
+sudo vim /etc/pacman.conf
 ```
 
-## 配置中文输入法（推荐 Fcitx5 方案）
+在文件末尾添加以下内容：
+
+```bash
+[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+```
+
+然后导入 GPG key：
+
+```bash
+# 同步数据库并安装 keyring
+sudo pacman -Sy archlinuxcn-keyring
+```
+
+## 3. 基础工具安装
+
+### 3.1 必需工具
+
+```bash
+# 安装基础开发工具和常用软件
+sudo pacman -S git curl wget vim base-devel
+```
+
+### 3.2 AUR 助手 (Yay)
+
+Yay 允许从 Arch User Repository (AUR) 安装软件包：
+
+```bash
+# 确保已安装必要的工具
+sudo pacman -S git base-devel
+
+# 克隆 yay 源码
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+
+# 构建并安装
+makepkg -si
+```
+
+或者直接从 Arch Linux CN 仓库安装：
+
+```bash
+sudo pacman -S yay
+```
+
+## 4. 中文化支持
+
+### 4.1 安装中文字体
+
+```bash
+# 安装常用中文字体
+sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts \
+               adobe-source-han-serif-cn-fonts wqy-microhei \
+               wqy-zenhei ttf-dejavu
+```
+
+### 4.2 配置中文输入法（Fcitx5）
 
 ```bash
 # 1. 安装输入法框架和中文输入法
-sudo pacman -S fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime fcitx5-chinese-addons
+sudo pacman -S fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt \
+               fcitx5-rime fcitx5-chinese-addons
 
 # 2. 配置环境变量
 sudo vim /etc/environment
-# 添加以下内容：
+```
+
+添加以下内容到 `/etc/environment`：
+
+```bash
 GTK_IM_MODULE=fcitx5
 QT_IM_MODULE=fcitx5
 XMODIFIERS=@im=fcitx5
 INPUT_METHOD=fcitx5
 SDL_IM_MODULE=fcitx5
+```
 
-# 3. 重启系统
+```bash
+# 3. 重启系统使配置生效
 sudo reboot
 
-# 4. 配置 GNOME 输入法
+# 4. 重启后在 GNOME 设置中配置输入法
 #    - 打开"设置" → "区域与语言"
 #    - 点击"输入源" → "添加"
 #    - 搜索"拼音" → 选择"汉语-拼音"
 #    - 按 Ctrl+Space 切换输入法
 ```
 
-## 实用配置
+## 5. 应用安装与配置
+
+### 5.1 Docker 安装
 
 ```bash
-sudo pacman -S firefox          # 浏览器
-sudo pacman -S gnome-tweaks     # GNOME 设置工具
+# 使用一键安装脚本
+bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+
+# 或使用国内镜像源脚本
+bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh)
 ```
 
-## 安装 v2rayA 
+> 脚本自动安装 `Docker Engine` 和 `Docker Compose`，支持选择软件源和镜像仓库。
 
-v2rayA 的功能依赖于 V2Ray 内核，因此需要安装内核。
+### 5.2 实用工具
 
-安装 V2Ray 内核
-从官方源安装 v2ray。
-
+```bash
+# 浏览器
+sudo pacman -S firefox
 ```
+
+### 5.3 v2rayA 代理工具
+
+```bash
+# 1. 安装 V2Ray 内核
 sudo pacman -S v2ray
-```
 
-安装 v2rayA
-从 AUR 安装 v2raya 或 v2raya-bin、v2raya-git 即可。
-
-```
+# 2. 安装 v2rayA（使用 yay 从 AUR 安装）
 yay -S v2raya
+
+# 3. 启用开机自启动
+sudo systemctl enable v2ray
+sudo systemctl enable v2raya
+
+# 4. 启动服务
+sudo systemctl start v2ray
+sudo systemctl start v2raya
 ```
 
-设置开机自启动
+## 6. 系统优化建议
+
+### 6.1 定期系统更新
+
+```bash
+# 更新系统所有软件包
+sudo pacman -Syu
+
+# 清理不需要的依赖包
+sudo pacman -Rns $(pacman -Qdtq)
 ```
-systemctl enable v2ray
-systemctl enable v2raya
+
+### 6.2 配置 Pacman 参数
+
+编辑 `/etc/pacman.conf`，添加以下配置以提高下载速度：
+
+```bash
+# 启用并行下载（取消注释）
+ParallelDownloads = 5
+
+# 启用彩色输出（取消注释）
+Color
 ```
+
+## 7. 参考资源
+
+- [Arch Linux 官方 Wiki](https://wiki.archlinux.org/)
+- [Arch Linux CN 中文 Wiki](https://wiki.archlinuxcn.org/)
+- [清华大学开源镜像站](https://mirrors.tuna.tsinghua.edu.cn/)
+
+---

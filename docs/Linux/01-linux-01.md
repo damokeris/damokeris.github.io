@@ -201,6 +201,18 @@ ParallelDownloads = 5
 Color
 ```
 
+#### 6.2.1 移除未使用的软件包（孤立软件包）
+
+孤立软件包是指作为依赖项安装但现在没有任何软件包需要的软件包。随着时间的推移，它们可能会在您的系统中积累，原因可能是使用 `pacman -R package` 而不是 `pacman -Rs package` 卸载软件包、使用 `makedepends` 安装软件包，或者软件包在新版本中移除依赖项。
+
+递归删除孤立文件及其配置文件：
+
+```bash
+pacman -Qdtq | pacman -Rns -
+```
+
+如果没有找到孤立文件，则输出为空 `error: argument '-' specified with empty stdin`。这是预期结果，因为没有向该命令传递任何参数 `pacman -Rns`。可以通过在第二个命令前加上 [moreutils](https://archlinux.org/packages/?name=moreutils) 包中的 [ifne(1)](https://man.archlinux.org/man/ifne.1) 来避免此错误。
+
 ## 7. 参考资源
 
 - [Arch Linux 官方 Wiki](https://wiki.archlinux.org/)

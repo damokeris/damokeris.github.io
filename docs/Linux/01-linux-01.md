@@ -213,6 +213,40 @@ pacman -Qdtq | pacman -Rns -
 
 如果没有找到孤立文件，则输出为空 `error: argument '-' specified with empty stdin`。这是预期结果，因为没有向该命令传递任何参数 `pacman -Rns`。可以通过在第二个命令前加上 [moreutils](https://archlinux.org/packages/?name=moreutils) 包中的 [ifne(1)](https://man.archlinux.org/man/ifne.1) 来避免此错误。
 
+> **提示**：建议定期运行 `pacman -Qdtq | pacman -Rns -` 以保持系统清洁，避免积累不必要的软件包。
+
+#### 6.2.2 解决 KDE 环境下中文输入法问题
+
+在 KDE 桌面环境中，如果遇到中文输入法（如 Fcitx5）无法正常工作，可以尝试通过用户级环境变量配置解决。
+
+1. **创建配置文件目录**（如果不存在）并编辑配置文件：
+
+   ```bash
+   mkdir -p ~/.config/environment.d
+   nano ~/.config/environment.d/im.conf
+   ```
+
+2. **写入以下内容**（适用于 Fcitx5 或 Fcitx）：
+
+   ```bash
+   GTK_IM_MODULE=fcitx
+   QT_IM_MODULE=fcitx
+   XMODIFIERS=@im=fcitx
+   SDL_IM_MODULE=fcitx
+   INPUT_METHOD=fcitx
+   ```
+
+   > **注意**：如果使用的是 Fcitx5，请将 `fcitx` 替换为 `fcitx5`。
+
+3. **重启会话**或重新登录 KDE，使配置生效。
+
+> **说明**：该配置将环境变量设置为用户级别，确保输入法框架在 KDE 会话中被正确识别。如果问题依旧，请检查输入法服务是否已启动（例如 `fcitx5 -d`）。
+
+
+
+
+
+
 ## 7. 参考资源
 
 - [Arch Linux 官方 Wiki](https://wiki.archlinux.org/)

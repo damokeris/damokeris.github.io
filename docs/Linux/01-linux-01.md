@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+tags:
+  - sources
+  - references
 ---
 
 import Tabs from '@theme/Tabs';
@@ -509,7 +512,6 @@ sudo virsh undefine <vm-name> --remove-all-storage
 - **网络无法连接**：检查默认网络是否已启动 `sudo virsh net-list --all`
 - **KVM 不可用**：确认内核模块已加载 `lsmod | grep kvm`，并检查 BIOS 中虚拟化是否启用
 - **virt-manager 无法连接**：确保 `libvirtd` 服务正在运行 `sudo systemctl status libvirtd`
-
 
 
 

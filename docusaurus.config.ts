@@ -36,6 +36,18 @@ const config: Config = {
     locales: ['zh-CN'],
   },
 
+  plugins: [
+    [
+      'docusaurus-graph',
+      {
+        docsDir: "docs",
+        buildDir: "build",
+        sourcesTag: "sources",
+        referencesTag: "references",
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -54,6 +66,22 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en", "zh"],
+        searchBarShortcutKeymap: "mod+k",
+      },
+    ],
+    "@docusaurus/theme-mermaid",
+  ],
+
+  markdown: {
+    mermaid: true,
+  },
 
   themeConfig: {
     // Replace with your project's social card

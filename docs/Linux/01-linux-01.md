@@ -290,6 +290,168 @@ Include = /etc/pacman.d/mirrorlist
 然后更新系统。
 
 
+### 6.4 QEMU/KVM 虚拟化配置
+
+#### 6.4.1 前置检查
+
+在安装前，请确认您的硬件支持虚拟化并加载必要的内核模块：
+
+```bash
+# 检查 CPU 是否支持虚拟化（输出大于0表示支持）
+egrep -c '(vmx|svm)' /proc/cpuinfo
+
+# 查看虚拟化技术详情
+lscpu | grep Virtualization
+
+# 加载 KVM 内核模块（根据 CPU 类型选择）
+sudo modprobe kvm
+sudo modprobe kvm_intel    # Intel CPU
+# 或 sudo modprobe kvm_amd # AMD CPU
+
+# 验证模块是否加载成功
+lsmod | grep kvm
+```
+
+> **注意**：如果输出为0，请进入 BIOS/UEFI 设置中启用虚拟化技术（如 Intel VT-x/AMD-V）。
+
+#### 6.4.2 安装软件包
+
+安装 QEMU/KVM 及相关管理工具：
+
+```bash
+# 安装 QEMU 完整版（包含各种仿真器）
+sudo pacman -S qemu-full dnsmasq
+
+# 安装 libvirt（虚拟化管理框架）和图形管理工具
+sudo pacman -S libvirt virt-manager virt-viewer
+
+# 安装命令行管理工具（可选）
+sudo pacman -S virt-install
+```
+
+dnsmasq 是一个轻量级的 DHCP 和 DNS 服务器。在 libvirt 中，它主要用于为虚拟机提供 NAT 网络（即默认的 default 网络），自动分配 IP 地址并处理 DNS 请求。
+如果系统中没有安装 dnsmasq，libvirtd 仍然可以正常启动和管理虚拟机，但无法启动默认的 NAT 网络，或者无法为虚拟机自动分配 IP。如果你打算使用桥接网络或仅主机网络，可能不受影响，但默认的 default 网络会失败。
+
+
+#### 6.4.3 服务与权限配置
+
+启动必要的服务并配置用户权限：
+
+```bash
+# 启动并启用 libvirtd 服务
+sudo systemctl enable --now libvirtd
+sudo systemctl enable --now virtlogd     # 日志服务
+
+# 将当前用户加入组（避免每次使用 sudo）
+sudo usermod -aG kvm $USER  # 添加用户到 kvm 组
+sudo usermod -aG libvirt $USER  # 若使用 Virt-Manager，需添加到 libvirt 组
+
+# 验证服务状态
+sudo systemctl status libvirtd
+```
+
+> **重要**：添加用户组后需要**重新登录**或重启系统才能生效。
+
+持久化加载 KVM 模块（可选）
+为避免重启后需手动加载 KVM 模块，可通过 modules-load.d 配置自动加载
+```bash
+# 创建配置文件
+sudo tee /etc/modules-load.d/kvm.conf <<EOF
+kvm
+kvm-intel  # Intel CPU 用，AMD 替换为 kvm-amd
+EOF
+```
+
+#### 6.4.4 网络配置
+
+默认情况下，libvirt 使用 NAT 网络为虚拟机提供网络连接：
+
+```bash
+# 查看默认网络状态
+sudo virsh net-list --all
+
+# 启动默认网络并设置开机自启
+sudo virsh net-start default
+sudo virsh net-autostart default
+```
+
+> **提示**：如需桥接网络（虚拟机直接使用物理网络），请参考 [Arch Wiki - Network bridge](https://wiki.archlinux.org/title/Network_bridge)。
+
+#### 6.4.5 存储管理
+
+libvirt 默认使用 `/var/lib/libvirt/images/` 作为存储池：
+
+```bash
+# 查看存储池
+sudo virsh pool-list --all
+
+# 创建新的目录存储池（示例）
+sudo virsh pool-define-as --name mypool --type dir --target /path/to/storage
+sudo virsh pool-start mypool
+sudo virsh pool-autostart mypool
+```
+
+#### 6.4.6 创建虚拟机
+
+##### 使用 virt-install（命令行）
+
+以下命令创建一个使用 virtio 驱动、分配 2GB 内存和 2 个 CPU 核心的虚拟机：
+
+```bash
+sudo virt-install \
+  --name myvm \
+  --memory 2048 \
+  --vcpus 2 \
+  --disk size=20,format=qcow2 \
+  --cdrom /path/to/iso \
+  --network network=default,model=virtio \
+  --graphics spice \
+  --os-variant detect=on
+```
+
+##### 使用 virt-manager（图形界面）
+
+1. 启动 virt-manager：`virt-manager`
+2. 点击「创建新虚拟机」
+3. 选择安装介质（ISO 或 URL）
+4. 配置 CPU、内存、磁盘等参数
+5. 完成创建并启动虚拟机
+
+#### 6.4.7 性能优化建议
+
+- **使用 virtio 驱动**：为磁盘和网络选择 `virtio` 驱动以获得最佳性能
+- **CPU 模式**：在 virt-manager 的 CPU 设置中选择 `host-passthrough` 以获得更好的 CPU 性能
+- **内存大页**：启用大页内存可以提高内存密集型虚拟机的性能
+- **磁盘缓存**：使用 `writeback` 或 `none` 缓存模式以提高 I/O 性能
+
+#### 6.4.8 常用管理命令
+
+```bash
+# 列出所有虚拟机
+sudo virsh list --all
+
+# 启动/关闭/重启虚拟机
+sudo virsh start <vm-name>
+sudo virsh shutdown <vm-name>
+sudo virsh reboot <vm-name>
+
+# 查看虚拟机信息
+sudo virsh dominfo <vm-name>
+
+# 删除虚拟机（需先关闭）
+sudo virsh undefine <vm-name> --remove-all-storage
+```
+
+#### 6.4.9 故障排除
+
+- **权限错误**：确认用户已加入 `libvirt` 组并已重新登录
+- **网络无法连接**：检查默认网络是否已启动 `sudo virsh net-list --all`
+- **KVM 不可用**：确认内核模块已加载 `lsmod | grep kvm`，并检查 BIOS 中虚拟化是否启用
+- **virt-manager 无法连接**：确保 `libvirtd` 服务正在运行 `sudo systemctl status libvirtd`
+
+
+
+
 ## 7. 参考资源
 
 - [Arch Linux 官方 Wiki](https://wiki.archlinux.org/)

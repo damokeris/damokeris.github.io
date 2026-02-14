@@ -245,6 +245,49 @@ pacman -Qdtq | pacman -Rns -
 
 
 
+### 6.3 multilib 仓库
+
+该仓库可在您喜欢的镜像站的 `.../multilib/os/` 目录中找到。
+
+multilib 包含 32 位软件和库，可用于在 64 位系统上运行和构建 32 位应用程序（例如 Steam 等）。
+
+启用 multilib 仓库后，32 位兼容库位于 `/usr/lib32/` 目录下。
+
+#### 启用 multilib
+
+要启用 multilib 仓库，取消 `/etc/pacman.conf` 中 `[multilib]` 节的注释：
+
+```bash
+/etc/pacman.conf
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+
+然后更新系统并安装所需的 multilib 软件包。
+
+**提示**：运行 `pacman -Sl multilib` 可以列出 multilib 仓库中的所有软件包。32 位库软件包名称以 `lib32-` 开头。
+
+#### 禁用 multilib
+
+执行以下命令以移除所有从 multilib 安装的软件包：
+
+```bash
+# pacman -R $(comm -12 <(pacman -Qq | sort) <(pacman -Slq multilib | sort))
+```
+
+如果与 `gcc-libs` 发生冲突，请重新安装 `gcc-libs` 软件包以及 `base-devel` 软件包的依赖项（参见 [Pacman/Tips and tricks#Dependencies of a package](https://wiki.archlinux.org/title/Pacman/Tips_and_tricks#Dependencies_of_a_package)）。
+
+**注意**：如果命令返回错误：`no targets specified (use -h for help)`，表示您的系统上没有安装来自 multilib 仓库的软件包。
+
+注释掉 `/etc/pacman.conf` 中的 `[multilib]` 节：
+
+```bash
+/etc/pacman.conf
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
+```
+
+然后更新系统。
 
 
 ## 7. 参考资源

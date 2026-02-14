@@ -1,8 +1,23 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Arch Linux 配置指南
 
 ## 概述
 
 本文档提供 Arch Linux 系统安装后的基础配置指南，帮助用户快速搭建中文环境并安装常用工具。
+
+:::tip 快速开始
+1. **换源**：配置软件源加速下载
+2. **语言环境**：设置中文显示支持  
+3. **必备工具**：安装git、curl、vim等基础工具
+4. **中文支持**：安装字体和输入法
+5. **应用安装**：按需安装Docker等工具
+:::
 
 ## 1. 系统基础配置
 
@@ -10,15 +25,27 @@
 
 安装完成后首先需要配置软件源以加速下载：
 
-```bash
-# 使用一键换源脚本（推荐）
-bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+<Tabs>
+<TabItem value="recommended" label="一键脚本（推荐）" default>
 
-# 或使用国内镜像源脚本
+```bash
+bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+```
+
+</TabItem>
+<TabItem value="mirror" label="国内镜像源脚本">
+
+```bash
 bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/ChangeMirrors.sh)
 ```
 
-> **注意**：需要 `ROOT` 权限。请使用 `root` 账户运行本脚本，切换命令为 `sudo -i` 或 `su root`。
+</TabItem>
+</Tabs>
+
+:::note 
+需要 `ROOT` 权限。请使用 `root` 账户运行本脚本，切换命令为 `sudo -i` 或 `su root`
+:::
+
 
 ### 1.2 系统语言环境配置
 
@@ -77,6 +104,9 @@ sudo pacman -S git curl wget vim base-devel
 
 Yay 允许从 Arch User Repository (AUR) 安装软件包：
 
+<Tabs>
+<TabItem value="source" label="从源码构建" default>
+
 ```bash
 # 确保已安装必要的工具
 sudo pacman -S git base-devel
@@ -89,11 +119,15 @@ cd yay-bin
 makepkg -si
 ```
 
-或者直接从 Arch Linux CN 仓库安装：
+</TabItem>
+<TabItem value="repo" label="从 Arch Linux CN 仓库安装">
 
 ```bash
 sudo pacman -S yay
 ```
+
+</TabItem>
+</Tabs>
 
 ## 4. 中文化支持
 
@@ -107,6 +141,9 @@ sudo pacman -S noto-fonts-cjk adobe-source-han-sans-cn-fonts \
 ```
 
 ### 4.2 配置中文输入法（Fcitx5）
+
+<details>
+<summary>点击查看详细配置步骤</summary>
 
 ```bash
 # 1. 安装输入法框架和中文输入法
@@ -138,19 +175,31 @@ sudo reboot
 #    - 按 Ctrl+Space 切换输入法
 ```
 
+</details>
+
 ## 5. 应用安装与配置
 
 ### 5.1 Docker 安装
 
-```bash
-# 使用一键安装脚本
-bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+<Tabs>
+<TabItem value="docker-script" label="一键安装脚本" default>
 
-# 或使用国内镜像源脚本
+```bash
+bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+```
+
+</TabItem>
+<TabItem value="docker-mirror" label="国内镜像源脚本">
+
+```bash
 bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh)
 ```
 
-> 脚本自动安装 `Docker Engine` 和 `Docker Compose`，支持选择软件源和镜像仓库。
+</TabItem>
+</Tabs>
+
+:::info 脚本自动安装 `Docker Engine` 和 `Docker Compose`，支持选择软件源和镜像仓库。   
+:::
 
 ### 5.2 实用工具
 
@@ -213,7 +262,9 @@ pacman -Qdtq | pacman -Rns -
 
 如果没有找到孤立文件，则输出为空 `error: argument '-' specified with empty stdin`。这是预期结果，因为没有向该命令传递任何参数 `pacman -Rns`。可以通过在第二个命令前加上 [moreutils](https://archlinux.org/packages/?name=moreutils) 包中的 [ifne(1)](https://man.archlinux.org/man/ifne.1) 来避免此错误。
 
-> **提示**：建议定期运行 `pacman -Qdtq | pacman -Rns -` 以保持系统清洁，避免积累不必要的软件包。
+:::tip 
+建议定期运行 `pacman -Qdtq | pacman -Rns -` 以保持系统清洁，避免积累不必要的软件包。
+:::
 
 #### 6.2.2 解决 KDE 环境下中文输入法问题
 
@@ -236,11 +287,15 @@ pacman -Qdtq | pacman -Rns -
    INPUT_METHOD=fcitx
    ```
 
-   > **注意**：如果使用的是 Fcitx5，请将 `fcitx` 替换为 `fcitx5`。
+    :::note 
+    如果使用的是 Fcitx5，请将 `fcitx` 替换为 `fcitx5`。
+    :::
 
 3. **重启会话**或重新登录 KDE，使配置生效。
 
-> **说明**：该配置将环境变量设置为用户级别，确保输入法框架在 KDE 会话中被正确识别。如果问题依旧，请检查输入法服务是否已启动（例如 `fcitx5 -d`）。
+:::info 
+该配置将环境变量设置为用户级别，确保输入法框架在 KDE 会话中被正确识别。如果问题依旧，请检查输入法服务是否已启动（例如 `fcitx5 -d`）。
+:::
 
 
 
@@ -312,7 +367,9 @@ sudo modprobe kvm_intel    # Intel CPU
 lsmod | grep kvm
 ```
 
-> **注意**：如果输出为0，请进入 BIOS/UEFI 设置中启用虚拟化技术（如 Intel VT-x/AMD-V）。
+:::note 
+如果输出为0，请进入 BIOS/UEFI 设置中启用虚拟化技术（如 Intel VT-x/AMD-V）。
+:::
 
 #### 6.4.2 安装软件包
 
@@ -350,7 +407,9 @@ sudo usermod -aG libvirt $USER  # 若使用 Virt-Manager，需添加到 libvirt 
 sudo systemctl status libvirtd
 ```
 
-> **重要**：添加用户组后需要**重新登录**或重启系统才能生效。
+:::warning 
+添加用户组后需要**重新登录**或重启系统才能生效。
+:::
 
 持久化加载 KVM 模块（可选）
 为避免重启后需手动加载 KVM 模块，可通过 modules-load.d 配置自动加载
@@ -375,7 +434,9 @@ sudo virsh net-start default
 sudo virsh net-autostart default
 ```
 
-> **提示**：如需桥接网络（虚拟机直接使用物理网络），请参考 [Arch Wiki - Network bridge](https://wiki.archlinux.org/title/Network_bridge)。
+:::tip 
+如需桥接网络（虚拟机直接使用物理网络），请参考 [Arch Wiki - Network bridge](https://wiki.archlinux.org/title/Network_bridge)。
+:::
 
 #### 6.4.5 存储管理
 

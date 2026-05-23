@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Hello, damokeris',
-  tagline: 'A Docusaurus Site',
+  tagline: '99% 的努力和 1% 的灵感',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -14,6 +14,32 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
     experimental_faster: true, // Enable experimental faster build mode
   },
+
+  // Google Fonts
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap',
+      },
+    },
+  ],
 
   // Set the production url of your site here
   url: 'https://damokeris.github.io',

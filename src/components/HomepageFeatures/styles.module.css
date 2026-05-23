@@ -1,8 +1,103 @@
+/**
+ * 毛玻璃卡片样式 — 首页功能展示
+ */
+
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
+.featureCol {
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out both;
+}
 
+.featureCol:nth-child(1) { animation-delay: 0.1s; }
+.featureCol:nth-child(2) { animation-delay: 0.3s; }
+.featureCol:nth-child(3) { animation-delay: 0.5s; }
+
+/* 毛玻璃卡片 */
+.featureCard {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* 顶部渐变色装饰条 */
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+[data-theme='dark'] .featureCard::before {
+  background: linear-gradient(90deg, #60a5fa, #93c5fd, #bfdbfe);
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.featureCard:hover::before {
+  opacity: 1;
+}
+
+[data-theme='dark'] .featureCard:hover {
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* 卡片图标 */
+.featureIcon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* 卡片标题 */
+.featureTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* 卡片描述 */
+.featureDesc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* 响应式 */
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 3rem 0;
+  }
+}

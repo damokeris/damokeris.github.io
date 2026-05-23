@@ -1,23 +1,173 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * 首页 Hero 区域样式
+ * 渐变背景 + 浮动装饰圆 + 渐变标题动画
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0 7rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--hero-gradient);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* 渐变标题 */
+.heroTitle {
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(
+    90deg,
+    #ef4444 0%,
+    #22d3ee 25%,
+    #3b82f6 50%,
+    #a855f7 75%,
+    #f472b6 100%
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-flow 4s ease-in-out infinite;
+  text-shadow: 0 4px 20px rgba(239, 68, 68, 0.15);
 }
 
+[data-theme='dark'] .heroTitle {
+  background: linear-gradient(
+    90deg,
+    #f87171 0%,
+    #67e8f9 25%,
+    #60a5fa 50%,
+    #c084fc 75%,
+    #f9a8d4 100%
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 副标题 */
+.heroSubtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2.2;
+  background: linear-gradient(135deg, #a855f7, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-glow 3s ease-in-out infinite alternate;
+}
+
+[data-theme='dark'] .heroSubtitle {
+  background: linear-gradient(135deg, #22d3ee, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Italic quote line */
+.heroQuote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* VSCode 图片 */
+.heroImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+}
+
+.heroImage:hover {
+  transform: scale(1.05) translateY(-4px);
+}
+
+/* 按钮容器 */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+/* 浮动装饰圆 */
+.floatingCircle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.floatingCircle:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  right: 10%;
+  background: radial-gradient(circle, #2563eb, transparent);
+  animation: float-1 6s ease-in-out infinite;
+}
+
+.floatingCircle:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 20%;
+  background: radial-gradient(circle, #3b82f6, transparent);
+  animation: float-2 7s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.floatingCircle:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 8%;
+  background: radial-gradient(circle, #60a5fa, transparent);
+  animation: float-3 8s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+[data-theme='dark'] .floatingCircle:nth-child(1) {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.25), transparent);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.1);
+}
+
+[data-theme='dark'] .floatingCircle:nth-child(2) {
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.2), transparent);
+}
+
+[data-theme='dark'] .floatingCircle:nth-child(3) {
+  background: radial-gradient(circle, rgba(191, 219, 254, 0.2), transparent);
+}
+
+/* 响应式 */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .floatingCircle {
+    display: none;
+  }
 }

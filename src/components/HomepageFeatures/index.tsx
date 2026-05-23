@@ -5,42 +5,47 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
+  icon: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '',
+    title: '计算机科学',
+    icon: '💻',
     description: (
       <>
-        过劳的中国在校生,辅修计算机科学与软件工程专业;
+        过劳的中国在校生，辅修计算机科学与软件工程专业；
       </>
     ),
   },
   {
-    title: '',
+    title: '全面发展',
+    icon: '🎹',
     description: (
       <>
-        从 3 岁起就参加各类培训班,唯一在各类学校外的时间是去学钢琴;
+        从 3 岁起就参加各类培训班，唯一在各类学校外的时间是去学钢琴；
       </>
     ),
   },
   {
-    title: '',
+    title: '解题思维',
+    icon: '🧠',
     description: (
       <>
-        肉眼只能看见题目中有用的部分,如果没有离散数学博士学位,他的答案你看了也看不懂;
+        肉眼只能看见题目中有用的部分，如果没有离散数学博士学位，他的答案你看了也看不懂；
       </>
     ),
   },
 ];
 
-function Feature({title, description}: FeatureItem) {
+function Feature({title, icon, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center padding-horiz--md">
-        {title && <Heading as="h3">{title}</Heading>}
-        <p style={{ fontSize: '1.1rem' }}>{description}</p>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>{icon}</div>
+        {title && <Heading as="h3" className={styles.featureTitle}>{title}</Heading>}
+        <p className={styles.featureDesc}>{description}</p>
       </div>
     </div>
   );

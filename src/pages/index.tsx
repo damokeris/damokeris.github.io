@@ -11,33 +11,37 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
+    <header className={clsx(styles.heroBanner)}>
+      {/* 浮动装饰圆 */}
+      <div className={styles.floatingCircle} />
+      <div className={styles.floatingCircle} />
+      <div className={styles.floatingCircle} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
           <div style={{ flex: 1, minWidth: '300px', padding: '1rem' }}>
-            <Heading as="h1" className="hero__title">
+            <Heading as="h1" className={styles.heroTitle}>
               天才就是
             </Heading>
-            <p className="hero__subtitle" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+            <p className={styles.heroSubtitle}>
               99% 的努力和 1% 的灵感
             </p>
-            <p style={{ fontSize: '1.2rem', fontStyle: 'italic' }}>
+            <p className={styles.heroQuote}>
               --放心，这里只有那 1%
             </p>
-            <div className={styles.buttons} style={{ marginTop: '2rem' }}>
+            <div className={styles.buttons}>
               <Link
-                className="button button--secondary button--lg"
+                className="button button--primary button--lg"
                 to="/docs/begin">
                 从这里开始
               </Link>
-
             </div>
           </div>
           <div style={{ flex: 1, minWidth: '300px', textAlign: 'center', padding: '1rem' }}>
-            <img 
-              src="/img/VSCode-Thick.png" 
-              alt="VSCode Logo" 
-              style={{ maxWidth: '100%', height: 'auto', maxHeight: '300px' }}
+            <img
+              src="/img/VSCode-Thick.png"
+              alt="VSCode Logo"
+              className={styles.heroImage}
             />
           </div>
         </div>
@@ -49,13 +53,30 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={siteConfig.title}
-      description={siteConfig.tagline}>
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
+    <>
+      {/* 浅色主题 — 蓝色微点阵 */}
+      <div className="light-dots" />
+      {/* 深色主题 — 星空 */}
+      <div className="starry-bg" />
+      {/* 深色主题 — 流星雨 */}
+      <div className="meteor-container">
+        <div className="meteor" />
+        <div className="meteor" />
+        <div className="meteor" />
+        <div className="meteor" />
+        <div className="meteor" />
+        <div className="meteor" />
+        <div className="meteor" />
+        <div className="meteor" />
+      </div>
+      <Layout
+        title={siteConfig.title}
+        description={siteConfig.tagline}>
+        <HomepageHeader />
+        <main>
+          <HomepageFeatures />
+        </main>
+      </Layout>
+    </>
   );
 }

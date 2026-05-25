@@ -9,7 +9,35 @@ type FeatureItem = {
   description: ReactNode;
 };
 
-const FeatureList: FeatureItem[] = [];
+const FeatureList: FeatureItem[] = [
+  {
+    title: '计算机科学',
+    icon: '💻',
+    description: (
+      <>
+        过劳的中国在校生，辅修计算机科学与软件工程专业；
+      </>
+    ),
+  },
+  {
+    title: '全面发展',
+    icon: '🎹',
+    description: (
+      <>
+        从 3 岁起就参加各类培训班，唯一在各类学校外的时间是去学钢琴；
+      </>
+    ),
+  },
+  {
+    title: '解题思维',
+    icon: '🧠',
+    description: (
+      <>
+        肉眼只能看见题目中有用的部分，如果没有离散数学博士学位，他的答案你看了也看不懂；
+      </>
+    ),
+  },
+];
 
 function Feature({title, icon, description}: FeatureItem) {
   return (

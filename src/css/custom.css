@@ -280,41 +280,6 @@ body {
 }
 
 /* =========================================================
-   10. 代码块样式
-   ========================================================= */
-code {
-  border-radius: 8px;
-  padding: 0.2rem 0.4rem;
-}
-
-pre {
-  border-radius: 12px;
-  background: var(--card-bg) !important;
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--border-light);
-}
-
-/* =========================================================
-   11. 文章容器
-   ========================================================= */
-.theme-doc-markdown {
-  border-radius: 16px;
-  padding: 0.5rem;
-}
-
-/* =========================================================
-   12. 页脚
-   ========================================================= */
-.footer {
-  border-top: 1px solid var(--border-light);
-  background: var(--page-bg-alt) !important;
-}
-
-.footer__copyright {
-  color: var(--text-tertiary);
-}
-
-/* =========================================================
    13. 关键帧动画
    ========================================================= */
 
@@ -570,3 +535,575 @@ pre {
 [data-theme='dark'] .light-dots { display: none; }
 :root:not([data-theme='dark']) .starry-bg,
 :root:not([data-theme='dark']) .meteor-container { display: none; }
+
+/* =========================================================
+   17. /docs/ 页面 — 侧边栏（毛玻璃）
+   ========================================================= */
+.theme-doc-sidebar-container {
+  background: transparent !important;
+  border-right: 1px solid var(--border-light);
+}
+
+.theme-doc-sidebar-container nav {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.5rem;
+}
+
+.menu {
+  padding: 0.5rem !important;
+  font-weight: 500;
+}
+
+.menu__list {
+  gap: 2px;
+}
+
+.menu__link {
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  color: var(--text-secondary);
+  font-weight: 450;
+}
+
+.menu__link:hover {
+  background: var(--card-bg);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.menu__link--active {
+  background: var(--btn-primary-bg) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.menu__link--active:hover {
+  color: #fff !important;
+}
+
+.menu__list-item-collapsible .menu__link--active {
+  background: transparent !important;
+  color: var(--ifm-color-primary) !important;
+  box-shadow: none;
+}
+
+.menu__list-item-collapsible:hover {
+  background: var(--card-bg);
+  border-radius: 10px;
+}
+
+/* 侧边栏图标（展开/折叠） */
+.menu__caret:before,
+.menu__link--sublist-caret:after {
+  background: var(--text-tertiary);
+  filter: brightness(1.2);
+}
+
+/* 侧边栏分类标题 */
+.menu__list-item:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+/* =========================================================
+   18. /docs/ 页面 — 右侧目录树 TOC（毛玻璃）
+   ========================================================= */
+.table-of-contents {
+  border-left: 2px solid var(--border-light);
+  padding: 0.75rem 0 0.75rem 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.table-of-contents__link {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+  background: var(--card-bg);
+  text-decoration: none;
+}
+
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+[data-theme='dark'] .table-of-contents__link--active {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+/* 移动端 TOC 按钮 */
+.theme-doc-toc-mobile button {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  color: var(--text-primary);
+}
+
+.theme-doc-toc-mobile .table-of-contents {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+}
+
+/* =========================================================
+   19. /docs/ 页面 — 文章内容区域
+   ========================================================= */
+.theme-doc-markdown {
+  padding: 0 0.5rem;
+}
+
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4 {
+  font-weight: 700;
+}
+
+.theme-doc-markdown h1 {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.theme-doc-markdown h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.theme-doc-markdown h3 {
+  margin-top: 2rem;
+  color: var(--text-primary);
+}
+
+.theme-doc-markdown p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.theme-doc-markdown a {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(37, 99, 235, 0.3);
+  transition: all 0.25s ease;
+}
+
+.theme-doc-markdown a:hover {
+  text-decoration-color: var(--ifm-color-primary);
+}
+
+/* =========================================================
+   20. /docs/ 页面 — 面包屑
+   ========================================================= */
+.theme-doc-breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.theme-doc-breadcrumbs .breadcrumbs__link {
+  border-radius: 6px;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s ease;
+  color: var(--text-tertiary);
+}
+
+.theme-doc-breadcrumbs .breadcrumbs__link:hover {
+  background: var(--card-bg);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.theme-doc-breadcrumbs .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--text-primary);
+  font-weight: 500;
+  background: var(--card-bg);
+}
+
+.breadcrumbs__separator {
+  color: var(--text-tertiary);
+}
+
+/* =========================================================
+   21. /docs/ 页面 — 上下页导航
+   ========================================================= */
+.pagination-nav {
+  margin-top: 3rem;
+}
+
+.pagination-nav__link {
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.25rem 1.5rem;
+}
+
+.pagination-nav__link:hover {
+  background: var(--card-bg);
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.pagination-nav__label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   22. /docs/ 页面 — 编辑此页链接
+   ========================================================= */
+.theme-edit-this-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-tertiary) !important;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  margin-top: 2rem;
+}
+
+.theme-edit-this-page:hover {
+  color: var(--ifm-color-primary) !important;
+  background: var(--card-bg);
+  text-decoration: none;
+}
+
+/* =========================================================
+   23. 页脚 — 毛玻璃匹配
+   ========================================================= */
+.footer {
+  border-top: 1px solid var(--border-light);
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 3rem 0 2rem;
+}
+
+.footer__copyright {
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.footer__link-item {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.footer__title {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.footer__col {
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   24. 页面切换 — 淡入过渡动画
+   ========================================================= */
+.main-wrapper {
+  animation: pageFadeIn 0.4s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   25. 代码块 & 行内代码 — 统一风格
+   ========================================================= */
+code {
+  border-radius: 8px;
+  padding: 0.2rem 0.45rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  font-size: 0.85em;
+}
+
+pre {
+  border-radius: 14px;
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--card-shadow);
+  padding: 1.25rem !important;
+}
+
+pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+}
+
+.theme-code-block-highlighted-line {
+  background: rgba(37, 99, 235, 0.08) !important;
+}
+
+[data-theme='dark'] .theme-code-block-highlighted-line {
+  background: rgba(96, 165, 250, 0.1) !important;
+}
+
+/* 代码块复制按钮 */
+.theme-code-block .clean-btn {
+  border-radius: 8px;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.theme-code-block .clean-btn:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   26. 表格 — 统一风格
+   ========================================================= */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  font-size: 0.9rem;
+}
+
+table thead {
+  background: var(--page-bg-alt);
+}
+
+table th {
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tr:hover td {
+  background: var(--card-bg);
+}
+
+/* =========================================================
+   27. 引用块 — 统一风格
+   ========================================================= */
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+blockquote p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* =========================================================
+   28. 提示框（Admonition）— 统一风格
+   ========================================================= */
+.alert {
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--card-shadow);
+  padding: 1rem 1.25rem;
+}
+
+.alert--info {
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.alert--warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.alert--danger {
+  border-left: 4px solid #ef4444;
+}
+
+.alert--success {
+  border-left: 4px solid #10b981;
+}
+
+.alert__title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* Admonition 图标 */
+.admonition-icon svg {
+  fill: var(--ifm-color-primary);
+}
+
+/* =========================================================
+   29. 移动端适配优化
+   ========================================================= */
+
+/* 减少动画：移动端关闭星空浓密效果减少闪烁性能开销 */
+@media (max-width: 996px) {
+  .light-dots {
+    opacity: 0.4;
+    animation: none;
+  }
+
+  .starry-bg {
+    opacity: 0.35;
+    animation: none;
+  }
+
+  .meteor-container {
+    display: none;
+  }
+
+  .theme-doc-sidebar-container {
+    backdrop-filter: none;
+  }
+
+  .theme-doc-sidebar-container nav {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .table-of-contents {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .footer {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 2rem 0 1.5rem;
+  }
+
+  .theme-doc-markdown h1 {
+    font-size: 1.65rem;
+  }
+
+  .theme-doc-markdown {
+    padding: 0;
+  }
+
+  .pagination-nav__link {
+    padding: 0.9rem 1.1rem;
+  }
+}
+
+/* 小屏幕：进一步缩减 */
+@media (max-width: 576px) {
+  .theme-doc-markdown h1 {
+    font-size: 1.4rem;
+  }
+
+  pre {
+    padding: 0.9rem !important;
+    border-radius: 10px;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  .menu__link {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* =========================================================
+   30. 动画性能优化
+   ========================================================= */
+/* GPU 加速 */
+.light-dots,
+.starry-bg,
+.card-glass,
+.navbar,
+.footer,
+.menu__link,
+.table-of-contents,
+.pagination-nav__link {
+  will-change: transform, opacity;
+}
+
+/* prefers-reduced-motion 兜底 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

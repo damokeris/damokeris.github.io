@@ -62,18 +62,6 @@ const config: Config = {
     locales: ['zh-CN'],
   },
 
-  plugins: [
-    [
-      'docusaurus-graph',
-      {
-        docsDir: "docs",
-        buildDir: "build",
-        sourcesTag: "sources",
-        referencesTag: "references",
-      },
-    ],
-  ],
-
   presets: [
     [
       'classic',

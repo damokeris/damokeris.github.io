@@ -1,11 +1,8 @@
 ---
-title: '写在最前'
+title: '文档中心'
 sidebar_position: 1
 ---
 
-# 序言
+import DocsLanding from '@site/src/components/DocsLanding';
 
-## 开头✍️
-
-更快的方法是不要重做已经做过的工作。
-
+<DocsLanding />

@@ -1,5 +1,6 @@
 ---
 title: vitepress 自动侧边栏 插件 入门
+tags: [VitePress]
 ---
 
 # 开始[​](https://vitepress-sidebar.jooy2.com/guide/getting-started#getting-started)

@@ -1,5 +1,6 @@
 ---
 title: vitepress 入门
+tags: [VitePress]
 ---
 
 # 快速开始

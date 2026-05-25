@@ -846,7 +846,338 @@ body {
 }
 
 /* =========================================================
-   24. 页面切换 — 淡入过渡动画
+   24. 标签云页面
+   ========================================================= */
+.tags-page-wrapper {
+  position: relative;
+  min-height: calc(100vh - var(--ifm-navbar-height) - 200px);
+  padding: 3rem 1rem;
+  overflow: hidden;
+}
+
+.tags-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* 装饰圆 */
+.tags-deco-circle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tags-deco-1 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  top: -100px;
+  right: -80px;
+  animation: float-1 8s ease-in-out infinite;
+}
+
+.tags-deco-2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.05) 0%, transparent 70%);
+  bottom: -60px;
+  left: -60px;
+  animation: float-2 10s ease-in-out infinite;
+}
+
+[data-theme='dark'] .tags-deco-1 {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
+}
+
+[data-theme='dark'] .tags-deco-2 {
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.06) 0%, transparent 70%);
+}
+
+/* Hero 区 */
+.tags-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.tags-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tags-hero-icon {
+  font-size: 2rem;
+}
+
+.tags-hero-title {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tags-hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+}
+
+/* 标签网格 */
+.tag-cloud-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.tag-cloud-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none !important;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.tag-cloud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tag-cloud-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.tag-cloud-card:hover::before {
+  opacity: 1;
+}
+
+[data-theme='dark'] .tag-cloud-card::before {
+  background: linear-gradient(90deg, #60a5fa, #93c5fd, #bfdbfe);
+}
+
+[data-theme='dark'] .tag-cloud-card:hover {
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.tag-cloud-card:nth-child(1) { animation-delay: 0.1s; }
+.tag-cloud-card:nth-child(2) { animation-delay: 0.2s; }
+.tag-cloud-card:nth-child(3) { animation-delay: 0.3s; }
+
+.tag-cloud-card-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.tag-cloud-card-label {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tag-cloud-card-count {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+
+/* 底部说明卡片 */
+.tags-footer-card {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.tags-footer-card p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.tags-footer-card strong {
+  color: var(--text-primary);
+}
+
+/* Docusaurus 内置标签页样式覆盖 */
+.page-tags-page {
+  padding: 2rem 0;
+}
+
+.tag-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 标签链接彩条 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary) !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+
+.tag:hover {
+  background: var(--btn-primary-bg);
+  color: #fff !important;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.tag-with-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--card-bg);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  transition: all 0.25s ease;
+}
+
+.tag-with-count:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--glass-bg);
+}
+
+.tag-page-title {
+  margin-bottom: 2rem;
+}
+
+/* 标签列表页 */
+.tag-post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tag-post-item {
+  padding: 1rem 1.25rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  transition: all 0.25s ease;
+}
+
+.tag-post-item:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.tag-post-item a {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.tag-post-item a:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .tags-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .tag-cloud-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tag-cloud-card {
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* =========================================================
+   25. 文章元信息栏
+   ========================================================= */
+.doc-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  user-select: none;
+  transition: opacity 0.3s ease;
+}
+
+.doc-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  line-height: 1;
+}
+
+.doc-meta-svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* 移动端元信息 */
+@media (max-width: 576px) {
+  .doc-meta-bar {
+    gap: 0.5rem 1rem;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================================================
+   26. 页面切换 — 淡入过渡动画
    ========================================================= */
 .main-wrapper {
   animation: pageFadeIn 0.4s ease-out;

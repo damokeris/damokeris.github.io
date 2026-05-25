@@ -1,5 +1,6 @@
 ---
 title: vitepress 自动侧边栏 插件 带缩进的多级侧边栏
+tags: [VitePress]
 ---
 
 # 介绍

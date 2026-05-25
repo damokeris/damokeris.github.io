@@ -80,6 +80,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          showLastUpdateTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -127,6 +128,11 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: '文档',
+        },
+        {
+          to: '/tags',
+          label: '标签',
+          position: 'left',
         },
         {
           href: 'https://github.com/damokeris/damokeris.github.io',

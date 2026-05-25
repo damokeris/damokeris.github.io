@@ -1,5 +1,6 @@
 ---
 title: vitepress 基于Git的页面历史 插件 入门
+tags: [VitePress]
 ---
 
 # 介绍

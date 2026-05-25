@@ -39,7 +39,7 @@ function HomepageHeader() {
           </div>
           <div style={{ flex: 1, minWidth: '300px', textAlign: 'center', padding: '1rem' }}>
             <img
-              src="/img/VSCode-Thick.png"
+              src="/img/VSCode-Thick.webp"
               alt="VSCode Logo"
               className={styles.heroImage}
             />

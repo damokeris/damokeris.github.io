@@ -73,6 +73,23 @@ const config: Config = {
         content: 'summary_large_image',
       },
     },
+    // SEO: JSON-LD Organization schema (site-wide)
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'damokeris',
+        url: 'https://damokeris.github.io',
+        logo: 'https://damokeris.github.io/img/icon.svg',
+        sameAs: [
+          'https://github.com/damokeris',
+        ],
+      }),
+    },
     // Google Fonts
     {
       tagName: 'link',
@@ -138,7 +155,8 @@ const config: Config = {
           changefreq: 'weekly',
           priority: 0.5,
           ignorePatterns: [
-            '/tags/**',
+            '/tags',
+            '/docs/tags/**',
             '/404',
             '/search',
           ],

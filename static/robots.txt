@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /search
+Disallow: /tags
 Disallow: /404
 
 Sitemap: https://damokeris.github.io/sitemap.xml

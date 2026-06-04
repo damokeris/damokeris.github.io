@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import Link from '@docusaurus/Link';
@@ -7,6 +8,9 @@ import styles from './index.module.css';
 export default function NotFound() {
   return (
     <Layout title="页面未找到" description="Page not found">
+      <Head>
+        <meta name="robots" content="noindex, follow" />
+      </Head>
       <div className="light-dots" />
       <div className="starry-bg" />
       <div className="meteor-container">

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import DocItemContent from '@theme-original/DocItem/Content';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import type { Props } from '@theme/DocItem/Content';
+import StructuredData from '@site/src/components/StructuredData';
 
 function ArticleMeta(): React.JSX.Element | null {
   const { metadata } = useDoc();
@@ -48,6 +49,7 @@ function ArticleMeta(): React.JSX.Element | null {
 export default function DocItemContentWrapper(props: Props): React.JSX.Element {
   return (
     <div className="doc-item-content-wrapper">
+      <StructuredData />
       <ArticleMeta />
       <DocItemContent {...props} />
     </div>

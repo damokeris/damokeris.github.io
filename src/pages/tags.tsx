@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -44,6 +45,9 @@ export default function TagsPage(): React.JSX.Element {
       title="标签云"
       description="浏览所有文档标签"
     >
+      <Head>
+        <meta name="robots" content="noindex, follow" />
+      </Head>
       <div className="tags-page-wrapper">
         {/* 装饰圆 */}
         <div className="tags-deco-circle tags-deco-1" />

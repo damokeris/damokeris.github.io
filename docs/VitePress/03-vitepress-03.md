@@ -1,5 +1,6 @@
 ---
-title: vitepress 基于Git的页面历史 插件 入门
+title: VitePress 基于 Git 的页面历史插件
+description: 为 VitePress 文档站点集成 Git 变更日志插件，自动展示页面修改记录与贡献者信息
 tags: [VitePress]
 ---
 

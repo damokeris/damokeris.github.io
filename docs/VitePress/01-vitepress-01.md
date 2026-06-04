@@ -1,5 +1,6 @@
 ---
-title: vitepress 入门
+title: VitePress 快速入门
+description: VitePress 从零开始的完整入门教程 — 安装、初始化项目、目录结构讲解与基础配置
 tags: [VitePress]
 ---
 

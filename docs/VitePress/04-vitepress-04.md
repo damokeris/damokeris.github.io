@@ -1,5 +1,6 @@
 ---
-title: vitepress 自动侧边栏 插件 带缩进的多级侧边栏
+title: VitePress 多级侧边栏缩进样式定制
+description: 通过自定义 CSS 实现 VitePress 多级侧边栏的层级缩进，让文档目录结构一目了然
 tags: [VitePress]
 ---
 

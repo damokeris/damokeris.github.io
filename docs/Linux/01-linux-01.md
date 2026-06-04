@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: Arch Linux 安装后的中文环境配置指南，涵盖换源、语言环境设置、常用开发工具安装等基础配置步骤
 tags:
   - Linux
   - sources

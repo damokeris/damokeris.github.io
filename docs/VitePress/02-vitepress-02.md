@@ -1,5 +1,6 @@
 ---
-title: vitepress 自动侧边栏 插件 入门
+title: VitePress 自动侧边栏插件配置指南
+description: 配置 vitepress-sidebar 插件实现文档站点侧边栏自动生成，告别手动维护侧边栏结构
 tags: [VitePress]
 ---
 

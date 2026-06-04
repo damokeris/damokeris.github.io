@@ -20,6 +20,60 @@ const config: Config = {
 
   // Google Fonts
   headTags: [
+    // SEO: canonical URL declaration
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'canonical',
+        href: 'https://damokeris.github.io',
+      },
+    },
+    // SEO: global meta description
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'description',
+        content: 'damokeris 个人技术站点 — 涵盖 Linux 系统配置、软件工程、VitePress 文档工具等技术文章与指南',
+      },
+    },
+    // SEO: Open Graph
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image',
+        content: 'https://damokeris.github.io/img/social-card.jpg',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image:width',
+        content: '1200',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image:height',
+        content: '630',
+      },
+    },
+    // SEO: Twitter Card
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    },
+    // Google Fonts
     {
       tagName: 'link',
       attributes: {

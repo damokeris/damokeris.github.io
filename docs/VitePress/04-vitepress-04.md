@@ -6,11 +6,7 @@ tags: [VitePress]
 
 # 介绍
 
-在多级侧边栏中，菜单显示时每一层都有缩进。但是，默认情况下，VitePress 从第二层开始缩进。例如
-
-![VitePress 多级侧边栏缩进修复前 — 子目录未正确缩进](http://bucket.damokeris.xyz/bucket-node-1/doc-multi-level-docs-before.png)
-
-上面是 的子文件，但它似乎位于同一层次结构中。`directory-level-2` `directory-level-1`
+在多级侧边栏中，菜单显示时每一层都有缩进。但是，默认情况下，VitePress 从第二层开始缩进——`directory-level-2` 是 `directory-level-1` 的子文件，但视觉上似乎位于同一层级。
 
 这不是 VitePress 侧边栏的问题，因此要修复它，您需要通过 [VitePress 的自定义 CSS](https://vitepress.dev/guide/extending-default-theme#customizing-css) 自定义现有主题的样式。
 
@@ -52,7 +48,5 @@ export default DefaultTheme;
 ```
 
 现在启动 VitePress 服务器。这样可以更轻松地查看子内容所在的组的第一级的层次结构。
-
-![VitePress 多级侧边栏缩进修复后 — 子目录正确缩进显示](http://bucket.damokeris.xyz/bucket-node-1/doc-multi-level-docs-after.png)
 
 需要注意的是，您在此处看到的垂直分隔线仅使用 CSS 创建;它应该是使用名为 的 CSS 类创建的，因此您应该知道，将来构建动态页面时可能不会选择垂直分隔线。`div` `indicator`

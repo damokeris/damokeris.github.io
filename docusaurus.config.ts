@@ -9,6 +9,9 @@ const config: Config = {
   tagline: '99% 的努力和 1% 的灵感',
   favicon: 'img/favicon.ico',
 
+  // SEO: prevent duplicate content from trailing-slash variants
+  trailingSlash: false,
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -75,6 +78,17 @@ const config: Config = {
             'https://github.com/damokeris/damokeris.github.io/tree/main/',
         },
          blog: false,
+        // SEO: sitemap configuration
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: [
+            '/tags/**',
+            '/404',
+            '/search',
+          ],
+        },
         theme: {
           customCss: './src/css/custom.css',
         },

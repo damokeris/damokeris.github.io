@@ -597,12 +597,7 @@ body {
   border-radius: 10px;
 }
 
-/* 侧边栏图标（展开/折叠） */
-.menu__caret:before,
-.menu__link--sublist-caret:after {
-  background: var(--text-tertiary);
-  filter: brightness(1.2);
-}
+/* 侧边栏图标（展开/折叠）—— 使用默认 Infima 箭头 */
 
 /* 侧边栏分类标题 */
 .menu__list-item:not(:first-child) {

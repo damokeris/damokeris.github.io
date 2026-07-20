@@ -1,0 +1,10 @@
+{
+  "label": "镜头",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "Nikon F 卡口镜头"
+  }
+}

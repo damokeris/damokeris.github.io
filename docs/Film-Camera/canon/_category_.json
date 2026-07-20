@@ -1,0 +1,10 @@
+{
+  "label": "Canon",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "佳能（Canon）手动胶片单反相机"
+  }
+}

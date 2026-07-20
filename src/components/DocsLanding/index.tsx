@@ -32,6 +32,13 @@ const categories: CategoryCard[] = [
     docId: '/docs/VitePress/vitepress-01',
     count: 4,
   },
+  {
+    title: '胶片相机',
+    description: '机械胶片单反相机规格参数与镜头记录',
+    icon: '📷',
+    docId: '/docs/Film-Camera/overview',
+    count: 3,
+  },
 ];
 
 export default function DocsLanding(): React.JSX.Element {
@@ -48,12 +55,12 @@ export default function DocsLanding(): React.JSX.Element {
       {/* 分类统计 */}
       <div className="docs-landing__stats">
         <div className="docs-landing__stat-item">
-          <span className="docs-landing__stat-number">3</span>
+          <span className="docs-landing__stat-number">4</span>
           <span className="docs-landing__stat-label">分类</span>
         </div>
         <div className="docs-landing__stat-divider" />
         <div className="docs-landing__stat-item">
-          <span className="docs-landing__stat-number">9</span>
+          <span className="docs-landing__stat-number">12</span>
           <span className="docs-landing__stat-label">篇文章</span>
         </div>
       </div>

@@ -15,6 +15,7 @@ const tags: TagInfo[] = [
   { label: 'Linux', count: 1, color: '#f97316', icon: '🐧' },
   { label: '软件工程', count: 4, color: '#3b82f6', icon: '🛠' },
   { label: 'VitePress', count: 4, color: '#22c55e', icon: '📝' },
+  { label: '胶片相机', count: 3, color: '#a855f7', icon: '📷' },
 ];
 
 // Docusaurus 自动转小写 & kebab-case 标签路径
@@ -22,6 +23,7 @@ const tagRoute: Record<string, string> = {
   'Linux': '/docs/tags/linux/',
   '软件工程': '/docs/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/',
   'VitePress': '/docs/tags/vite-press/',
+  '胶片相机': '/docs/tags/%E8%83%B6%E7%89%87%E7%9B%B8%E6%9C%BA/',
 };
 
 function TagCard({ tag }: { tag: TagInfo }) {
@@ -76,7 +78,7 @@ export default function TagsPage(): React.JSX.Element {
           <div className="tags-footer-card">
             <p>
               点击标签查看该分类下的所有文章。
-              文档系统按 <strong>Linux</strong>、<strong>软件工程</strong>、<strong>VitePress</strong> 三个方向组织内容。
+              文档系统按 <strong>Linux</strong>、<strong>软件工程</strong>、<strong>VitePress</strong>、<strong>胶片相机</strong> 四个方向组织内容。
             </p>
           </div>
         </div>

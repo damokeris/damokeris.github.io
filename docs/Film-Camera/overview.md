@@ -13,11 +13,11 @@ tags:
 
 ## Canon
 
-- [Canon FT](/docs/Film-Camera/canon/01-canon-ft) — 1966 年推出的 FD 卡口机械快门单反
-- [Canon FTb](/docs/Film-Camera/canon/02-canon-ftb) — 1971 年推出的 FT 后继机型
+- [Canon FT](/docs/Film-Camera/canon/canon-ft) — 1966 年推出的 FD 卡口机械快门单反
+- [Canon FTb](/docs/Film-Camera/canon/canon-ftb) — 1971 年推出的 FT 后继机型
 
 ## Nikon
 
 ### 镜头
 
-- [Nikon AF Nikkor 50mm f/1.8D](/docs/Film-Camera/nikon/lens/01-nikon-50mm-f18d) — 经典的尼康标准镜头
+- [Nikon AF Nikkor 50mm f/1.8D](/docs/Film-Camera/nikon/lens/nikon-50mm-f18d) — 经典的尼康标准镜头

@@ -148,7 +148,12 @@ const config: Config = {
           editUrl:
             'https://github.com/damokeris/damokeris.github.io/tree/main/',
         },
-         blog: false,
+        blog: {
+          blogTitle: '博客',
+          blogDescription: 'damokeris 的个人博客',
+          showReadingTime: true,
+          postsPerPage: 10,
+        },
         // SEO: sitemap configuration
         sitemap: {
           lastmod: 'date',
@@ -203,6 +208,7 @@ const config: Config = {
           position: 'left',
           label: '文档',
         },
+        {to: '/blog', label: '博客', position: 'left'},
         {
           to: '/tags',
           label: '标签',

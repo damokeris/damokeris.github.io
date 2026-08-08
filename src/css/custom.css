@@ -1277,6 +1277,28 @@ table tr:hover td {
   background: var(--card-bg);
 }
 
+/* 规格参数表（如胶片相机机身页）— 占满正文宽度、固定列宽，表头底色铺满整个表格 */
+.theme-doc-markdown table {
+  width: 100%;
+  margin: 0;
+  table-layout: fixed;
+}
+.theme-doc-markdown table th,
+.theme-doc-markdown table td {
+  overflow-wrap: break-word;
+}
+/* 第一列固定窄宽（项目/类别），其余列均分剩余宽度 */
+.theme-doc-markdown table th:first-child,
+.theme-doc-markdown table td:first-child {
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  .theme-doc-markdown table {
+    width: 100%;
+  }
+}
+
 /* =========================================================
    26. 引用块 — 统一风格
    ========================================================= */
